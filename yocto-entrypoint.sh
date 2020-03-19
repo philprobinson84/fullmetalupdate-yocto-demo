@@ -2,6 +2,7 @@
 
 SUPPORTED_MACHINES_ROCKO=" \
   imx6qdlsabresd \
+  raspberrypi2 \
   raspberrypi3 \
 "
 SUPPORTED_MACHINES_THUD=" \
@@ -34,6 +35,9 @@ yocto_sync()
   "imx6qdlsabresd")
       BRANCH_REPO="imx"
       ;;
+  "raspberrypi2")
+      BRANCH_REPO="raspberrypi"
+      ;;
   "raspberrypi3")
       BRANCH_REPO="raspberrypi"
       ;;
@@ -45,7 +49,7 @@ yocto_sync()
       ;;
   esac
 
-  echo "N" | repo init -u https://github.com/FullMetalUpdate/manifest -b "${YOCTO}/${BRANCH_REPO}" -m "${FULLMETALUPDATE}.xml"
+  echo "N" | repo init -u https://github.com/philprobinson84/manifest -b "${YOCTO}/${BRANCH_REPO}" -m "${FULLMETALUPDATE}.xml"
 
   repo sync --force-sync
 }
